@@ -363,3 +363,62 @@ noscript .scroll-transition-fade.below-viewport {
   opacity: 1 !important;
   transform: none !important;
 }
+
+
+/* ==========================================================================
+   11. RESPONSIVE — tablet & phone
+   Desktop (above) is the default. These two breakpoints reflow the layout:
+     • Tablet (≤768px): the fixed side column becomes a static header at the
+       top, the main column drops its offset, the project header stacks, and
+       the 36-tile poster grid eases from 4 → 2 columns.
+     • Phone  (≤480px): every remaining multi-column area collapses to one
+       column.
+   Spacing shrinks by overriding the --pad-main / --media-margin tokens, so the
+   whole system stays driven from one place.
+   ========================================================================== */
+
+/* ---- Tablet and below ---- */
+@media (max-width: 768px) {
+  :root {
+    --pad-main:     2rem;
+    --media-margin: 1.5rem;
+  }
+
+  /* Sidebar: fixed left column → normal block stacked at the top */
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 2rem 1.5rem;
+    pointer-events: auto;        /* it's a real header now, not an overlay */
+  }
+  .social { margin-top: 1.5rem; }
+
+  /* Main column no longer needs to clear the sidebar */
+  .main { margin-left: 0; }
+
+  /* Title + description stack instead of sitting side by side.
+     (Reset the desktop flex-basis so it doesn't become a height in a column.) */
+  .project__header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .project__header .title,
+  .project__header .desc { flex: none; }
+
+  /* Poster grid eases down */
+  .gallery-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Phone ---- */
+@media (max-width: 480px) {
+  :root { --pad-main: 1.5rem; }
+
+  .sidebar { padding: 1.5rem 1.2rem; }
+
+  /* Everything collapses to a single column */
+  .thumbnails { flex-direction: column; }   /* stack the two thumbnail columns */
+  .gallery-grid--2,
+  .gallery-grid--4 { grid-template-columns: 1fr; }
+  .gallery-columns { columns: 1; }
+}

@@ -4,8 +4,7 @@ A clean, hand-written rebuild of the original Cargo/SingleFile export. The goal 
 code that's easy to read and edit often: no machine-generated wrappers, no
 duplicated markup, every section commented.
 
-**Phase 1 (this version): desktop layout only.** Mobile responsiveness and dark
-mode come next — see Roadmap.
+**Now responsive (desktop + mobile).** Dark mode comes next — see Roadmap.
 
 ## What's here
 
@@ -76,9 +75,11 @@ preview steps above) before moving to the next phase.
 
 ## Roadmap
 
-1. **Desktop** ← you are here. Confirm it matches the live site.
-2. **Mobile** — responsive breakpoints so the columns stack on phones.
-3. **Dark mode** — a small top-right toggle that remembers the choice and
+1. **Desktop** — done (`v1-desktop`).
+2. **Mobile** — done (`v2-mobile`). Two breakpoints (section 11 of `style.css`):
+   tablet (≤768px) moves the sidebar to a top header and drops the poster grid
+   to 2 columns; phone (≤480px) collapses everything to one column.
+3. **Dark mode** ← next. A small top-right toggle that remembers the choice and
    respects the OS preference. Mostly a second set of values for the CSS
    variables already in `style.css`.
 
