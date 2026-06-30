@@ -1,24 +1,40 @@
 <!-- ==========================================================================
-     Shared sidebar — intro (top) + social icons (bottom)
+     Shared sidebar — intro + collapsible navigation + social
      Injected into every page via include.js. Edit once, updates everywhere.
+
+     Layout differs by screen (see style.css):
+       • Desktop : fixed left column; nav always visible; social pinned bottom.
+       • Mobile  : stacked centred header; nav + social collapse behind the "+"
+                   toggle and expand downward, pushing the page content down.
+
+     The "+" is a pure-CSS toggle: a hidden checkbox (#nav-toggle) whose
+     :checked state reveals the later siblings (.sidebar__nav and .social).
+     They must stay DIRECT children of .sidebar, after the checkbox, for the
+     `~` sibling selector to reach them — don't wrap them in another element.
      ========================================================================== -->
 <aside class="sidebar">
 
-  <!-- Top: avatar, intro, quick links, category nav -->
-  <div class="sidebar__top">
-    <a href="https://tchaco.cc/Home" class="image-link">
-      <img class="sidebar__avatar" src="assets_compressed/image_027_80695b78ec6f.jpg"
-           width="1080" height="1080" alt="Thiago Da Costa">
-    </a>
+  <!-- Always visible: avatar + intro -->
+  <a href="https://tchaco.cc/Home" class="image-link">
+    <img class="sidebar__avatar" src="assets_compressed/image_027_80695b78ec6f.jpg"
+         width="1080" height="1080" alt="Thiago Da Costa">
+  </a>
 
-    <small class="sidebar__intro">
-      Hey, I'm <b>Thiago Da Costa</b>, a Brazilian designer &amp; illustrator
-      living in Brisbane, Australia.
-    </small>
+  <small class="sidebar__intro">
+    Hey, I'm <b>Thiago Da Costa</b>, a Brazilian designer &amp; illustrator
+    living in Brisbane, Australia.
+  </small>
 
+  <!-- Mobile-only collapse toggle (hidden on desktop). The label shows "+" /
+       "–" via CSS; the checkbox holds the open/closed state. -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+  <label for="nav-toggle" class="nav-toggle__btn" aria-label="Toggle menu"></label>
+
+  <!-- Collapsible navigation: quick links + category nav -->
+  <div class="sidebar__nav">
     <nav class="sidebar__links">
-      <a href="https://tchaco.cc/about" rel="history">︎ ABOUT</a>
-      <a href="https://tchaco.cc/newsletter" rel="history">︎ NEWSLETTER</a>
+      <a href="https://tchaco.cc/about" rel="history">︎ ABOUT</a>
+      <a href="https://tchaco.cc/newsletter" rel="history">︎ NEWSLETTER</a>
     </nav>
 
     <nav class="categories">
@@ -29,7 +45,8 @@
     </nav>
   </div>
 
-  <!-- Bottom: social icons -->
+  <!-- Social icons: pinned to the bottom on desktop; part of the collapsible
+       menu on mobile -->
   <div class="social">
     <a href="http://instagram.com/tchaco" target="_blank" aria-label="Instagram">
       <svg height="1.25em" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>

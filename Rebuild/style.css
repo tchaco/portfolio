@@ -174,13 +174,19 @@ small {
   padding: var(--pad-side);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  /* intro pinned top, social pinned bottom */
   /* let clicks fall through empty space, but keep links/images interactive */
   pointer-events: none;
   z-index: 5;
 }
 .sidebar a,
-.sidebar img { pointer-events: auto; }
+.sidebar img,
+.sidebar label { pointer-events: auto; }
+
+/* Desktop: the "+" toggle is inert and hidden; nav is always shown,
+   social is pushed to the bottom of the column. */
+.nav-toggle,
+.nav-toggle__btn { display: none; }
+.social { margin-top: auto; }
 
 .main {
   margin-left: var(--sidebar-w);
@@ -384,15 +390,50 @@ noscript .scroll-transition-fade.below-viewport {
     --media-margin: 1.5rem;
   }
 
-  /* Sidebar: fixed left column → normal block stacked at the top */
+  /* Sidebar: fixed left column → centred header stacked at the top.
+     align-items/text-align centre every nav element (mobile only). */
   .sidebar {
     position: static;
     width: 100%;
     height: auto;
     padding: 2rem 1.5rem;
     pointer-events: auto;        /* it's a real header now, not an overlay */
+    align-items: center;
+    text-align: center;
   }
-  .social { margin-top: 1.5rem; }
+
+  /* Show the "+" toggle just below the intro. Checking it reveals the nav and
+     social, which expand DOWNWARD in normal flow — pushing the page down. */
+  .nav-toggle__btn {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+  }
+  .nav-toggle__btn::before { content: "+"; }
+  .nav-toggle:checked ~ .nav-toggle__btn::before { content: "\2013"; } /* – */
+
+  /* Collapsed by default… */
+  .sidebar__nav,
+  .social { display: none; }
+  /* …revealed when the toggle is checked */
+  .nav-toggle:checked ~ .sidebar__nav { display: block; }
+  .nav-toggle:checked ~ .social {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  /* Category tags flow into a centred grid instead of one per line */
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 0.4rem 1.5rem;
+  }
 
   /* Main column no longer needs to clear the sidebar */
   .main { margin-left: 0; }

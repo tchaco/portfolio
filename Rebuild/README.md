@@ -85,18 +85,19 @@ preview steps above) before moving to the next phase.
 
 ## Versioning
 
-Recommended: **git, with a tag per phase.**
+Recommended: **git, with a tag per phase.** The repo already exists; commit each
+new phase from your Terminal:
 
 ```bash
-cd "/Users/thiagodacosta/Claude/Projects/Portfolio Website Rebuild"
-git init
-git add .
-git commit -m "Phase 1: clean desktop rebuild (4 sample pages)"
-git tag v1-desktop
+cd ~/Projects/tchaco-rebuild
+git add -A
+git commit -m "describe what changed"
+git tag v3-dark-mode        # optional bookmark for big milestones
 ```
 
-Then each phase is its own commit + tag (`v2-mobile`, `v3-dark-mode`), so you can
-always diff or roll back. Want bigger experiments? Branch them:
-`git switch -c dark-mode`. If you'd rather not use git, keep dated snapshot
-copies of the `Rebuild/` folder (`Rebuild_2026-07-01_desktop/`), but git is
-lighter and lets you compare versions properly.
+History so far: `v1-desktop` → `v2-mobile`. Each phase is its own commit (+ tag),
+so you can always diff or roll back. Want bigger experiments? Branch them:
+`git switch -c dark-mode`.
+
+Note: commits must be run from your Terminal — the in-app sandbox can edit files
+but isn't allowed to delete git's lock files, so it can't complete a commit.
