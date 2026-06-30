@@ -1,0 +1,101 @@
+# Tchaco — Portfolio Rebuild
+
+A clean, hand-written rebuild of the original Cargo/SingleFile export. The goal is
+code that's easy to read and edit often: no machine-generated wrappers, no
+duplicated markup, every section commented.
+
+**Phase 1 (this version): desktop layout only.** Mobile responsiveness and dark
+mode come next — see Roadmap.
+
+## What's here
+
+```
+Rebuild/
+├── index.html                          Home (sidebar + project gallery)
+├── cervejaria-luna-visual-identity.html
+├── braz-pizzaria-pizza-lovers.html
+├── 36-days-of-type.html
+├── style.css                           One stylesheet, organised in 10 commented sections
+├── include.js                          Loads the shared partials
+├── scroll-fade.js                      Reveal-on-scroll animation
+├── partials/
+│   ├── sidebar.html                    Intro + social — shared by every page
+│   └── gallery.html                    The 20-project thumbnail grid — shared
+└── assets_compressed/                  → symlink to ../Reference Files/assets_compressed
+```
+
+## Why partials (and why a local server)
+
+The intro sidebar and the 20-thumbnail gallery used to be copy-pasted into every
+page. Here they live in **one file each** (`partials/`) and are injected at load
+time by `include.js`. Edit `partials/gallery.html` once and every page updates.
+
+The trade-off: `include.js` uses `fetch()`, which browsers block on the
+`file://` protocol. **Opening the .html files by double-clicking won't load the
+sidebar or gallery.** Run a tiny local server instead:
+
+```bash
+cd "Rebuild"
+python3 -m http.server 8000
+# then open http://localhost:8000/
+```
+
+(Any static server works — `npx serve`, VS Code "Live Server", etc.) Once the
+site is hosted on a real server/CDN, includes work with no extra setup.
+
+## How the layout works
+
+- **Sidebar** is `position: fixed` on the left (20% wide), a flex column with the
+  intro pinned top and social icons pinned bottom.
+- **Main column** is offset by the sidebar width and holds the page content.
+- **Thumbnails** are two curated columns; each tile keeps its true aspect ratio
+  via an inline `--ar: width/height` custom property.
+- **Galleries** come in two flavours: `.gallery-grid` (row-major, e.g. the
+  36-tile poster grid) and `.gallery-columns` (column-major masonry, available
+  for future use).
+- **Colours** are all CSS variables in `:root` (section 1 of `style.css`) — this
+  is what makes dark mode a small, contained change later.
+
+## Editing cheatsheet
+
+| To change… | Edit… |
+|---|---|
+| Intro text, avatar, social links, category nav | `partials/sidebar.html` |
+| Which projects appear in the thumbnail grid / their order | `partials/gallery.html` |
+| Colours, spacing, fonts, layout | `style.css` (top-down, sections labelled) |
+| A project's images / text | that project's `.html` file |
+
+## Verified
+
+- All 94 asset references resolve.
+- All pages, partials, CSS and JS serve `200` over HTTP.
+- HTML tag structure is balanced on every file.
+
+Visual parity with https://tchaco.cc/ should be eyeballed in the browser (see
+preview steps above) before moving to the next phase.
+
+## Roadmap
+
+1. **Desktop** ← you are here. Confirm it matches the live site.
+2. **Mobile** — responsive breakpoints so the columns stack on phones.
+3. **Dark mode** — a small top-right toggle that remembers the choice and
+   respects the OS preference. Mostly a second set of values for the CSS
+   variables already in `style.css`.
+
+## Versioning
+
+Recommended: **git, with a tag per phase.**
+
+```bash
+cd "/Users/thiagodacosta/Claude/Projects/Portfolio Website Rebuild"
+git init
+git add .
+git commit -m "Phase 1: clean desktop rebuild (4 sample pages)"
+git tag v1-desktop
+```
+
+Then each phase is its own commit + tag (`v2-mobile`, `v3-dark-mode`), so you can
+always diff or roll back. Want bigger experiments? Branch them:
+`git switch -c dark-mode`. If you'd rather not use git, keep dated snapshot
+copies of the `Rebuild/` folder (`Rebuild_2026-07-01_desktop/`), but git is
+lighter and lets you compare versions properly.

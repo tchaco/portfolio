@@ -1,0 +1,1309 @@
+#admin_toggle_button:active {
+  background: rgba(0, 0, 0, .065)
+}
+
+#following-container iframe {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0
+}
+
+#following-container {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch
+}
+
+#shop_button {
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 9;
+  vertical-align: top;
+  cursor: pointer;
+  box-sizing: content-box;
+  font-family: Icons
+}
+
+#site_menu a:active {
+  opacity: 0.7
+}
+
+#site_menu_button {
+  text-decoration: none;
+  pointer-events: auto;
+  z-index: 9;
+  vertical-align: top;
+  cursor: pointer;
+  box-sizing: content-box;
+  font-family: Icons
+}
+
+#toolset a:hover {
+  background: rgba(0, 0, 0, .8)
+}
+
+#toolset_admin a:active {
+  background: rgba(0, 0, 0, .7)
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+.AppearanceSwitchWrapper .Switch:after,
+.AppearanceSwitchWrapper .Switch:before,
+.AppearanceSwitchWrapper .Switch:checked:after,
+.AppearanceSwitchWrapper .Switch:checked:before {
+  content: ""
+}
+
+.AppearanceSwitchWrapper .Switch:checked+.SwitchButton .SwitchButtonIcon--Dark {
+  display: flex
+}
+
+.AppearanceSwitchWrapper .Switch:checked+.SwitchButton .SwitchButtonIcon--Light {
+  display: none
+}
+
+.AppearanceSwitchWrapper .Switch:checked+.SwitchButton {
+  background-color: #ffbf1a;
+  right: .3125rem
+}
+
+.AppearanceSwitchWrapper .Switch:checked {
+  background-color: #131414;
+  border-color: #ffbf1a
+}
+
+.Article-header-body::before {
+  display: none !important
+}
+
+.container {
+  align-items: flex-start;
+  -webkit-align-items: flex-start
+}
+
+.container {
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow: visible
+}
+
+.content .page_content:not([contenteditable=true]) [data-draggable]:active {
+  opacity: 1
+}
+
+.content [data-draggable] a:active,
+.content [data-draggable] img:active {
+  opacity: initial
+}
+
+.content img.image-zoom:active {
+  opacity: .7
+}
+
+.content img {
+  float: none;
+  margin-bottom: .5em
+}
+
+.content,
+.content_container,
+.pinned {
+  -webkit-flex: 1 0 auto;
+  -moz-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  max-width: 100%
+}
+
+.content_container {
+  width: 100%
+}
+
+.faded-article-content::after {
+  display: none !important
+}
+
+.image-gallery .gallery_card .resize-handle:hover {
+  opacity: 1
+}
+
+.loading[data-loading] {
+  position: fixed;
+  bottom: 8px;
+  left: 8px;
+  z-index: 100
+}
+
+.main_container {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden
+}
+
+.new_site_button .plus:after,
+.new_site_button .plus:before {
+  content: "";
+  width: 30px;
+  height: 2px
+}
+
+.new_site_button:active {
+  opacity: .8
+}
+
+.page_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%
+}
+
+.page_container {
+  position: relative;
+  overflow: visible;
+  width: 100%
+}
+
+.page {
+  position: relative;
+  z-index: 2
+}
+
+.page {
+  word-wrap: break-word
+}
+
+.pinned .page_container .page.allow-scroll::-webkit-scrollbar {
+  width: 0;
+  background: 0 0;
+  display: none
+}
+
+.pinned .page_container.overlay.fixed .page {
+  max-height: 100vh;
+  -webkit-overflow-scrolling: touch
+}
+
+.pinned .page_container.overlay.fixed {
+  position: fixed
+}
+
+.pinned.pinned_top .page_container.overlay {
+  left: 0
+}
+
+.pinned {
+  position: relative;
+  width: 100%
+}
+
+.pointer-events-none .page_content *>a,
+.pointer-events-none .page_content>a {
+  position: relative
+}
+
+.pointer-events-none .page_content a,
+.pointer-events-none .page_content img {
+  pointer-events: auto
+}
+
+.pointer-events-none {
+  pointer-events: none
+}
+
+.polarisSpid.widget::before {
+  display: none !important
+}
+
+.quick-view-navigation .pswp__group:active svg {
+  opacity: .75
+}
+
+.sf-hidden {
+  display: none !important
+}
+
+.shop_product select.dropdown::-ms-expand {
+  display: none
+}
+
+.slick-arrow svg:active {
+  opacity: .75
+}
+
+.slick-list:focus {
+  outline: 0
+}
+
+.slick-track:after,
+.slick-track:before {
+  display: table;
+  content: "";
+  width: 1px;
+  height: 1px;
+  margin-top: -1px;
+  margin-left: -1px
+}
+
+.slick-track:after {
+  clear: both
+}
+
+.thumbnails .thumbnail:hover .title {
+  opacity: 1
+}
+
+.thumbnails {
+  position: relative;
+  z-index: 1
+}
+
+.toggle_standaloneAdmin:active {
+  opacity: .7
+}
+
+:focus {
+  outline: 0
+}
+
+:root {
+  --following-width: -400px;
+  --following-animation-duration: 450ms
+}
+
+@-moz-keyframes fade-pulse-in {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: .5
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@-moz-keyframes pulsate {
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes fade-pulse-in {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: .5
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes spin-loading {
+  0% {
+    transform: rotate(0)
+  }
+
+  9% {
+    transform: rotate(1050deg)
+  }
+
+  18% {
+    transform: rotate(-1090deg)
+  }
+
+  20% {
+    transform: rotate(-1080deg)
+  }
+
+  23% {
+    transform: rotate(-1080deg)
+  }
+
+  28% {
+    transform: rotate(-1095deg)
+  }
+
+  29% {
+    transform: rotate(-1065deg)
+  }
+
+  34% {
+    transform: rotate(-1080deg)
+  }
+
+  35% {
+    transform: rotate(-1050deg)
+  }
+
+  40% {
+    transform: rotate(-1065deg)
+  }
+
+  41% {
+    transform: rotate(-1035deg)
+  }
+
+  44% {
+    transform: rotate(-1035deg)
+  }
+
+  47% {
+    transform: rotate(-2160deg)
+  }
+
+  50% {
+    transform: rotate(-2160deg)
+  }
+
+  56% {
+    transform: rotate(45deg)
+  }
+
+  60% {
+    transform: rotate(45deg)
+  }
+
+  80% {
+    transform: rotate(6120deg)
+  }
+
+  100% {
+    transform: rotate(0)
+  }
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_024_2e4cbe4ad015.woff)format("woff");
+  font-style: normal;
+  font-weight: normal;
+  unicode-range: U+0-DFFF, U+F900-FFFD
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_025_efd2b65cfe3b.woff)format("woff");
+  font-style: italic;
+  font-weight: normal;
+  unicode-range: U+0-DFFF, U+F900-FFFD
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  font-weight: 240;
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-weight: 200;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-weight: 400;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-weight: 400
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-weight: 600;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-weight: 600
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-weight: 800;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+  font-weight: 800
+}
+
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2);
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E
+}
+
+@keyframes fade-pulse-in {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: .5
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes following-close-inverse {
+  0% {
+    transform: translateX(calc(-1*var(--following-width)))
+  }
+
+  100% {
+    transform: translateX(0)
+  }
+}
+
+@keyframes following-close {
+  0% {
+    transform: translateX(var(--following-width))
+  }
+
+  100% {
+    transform: translateX(0)
+  }
+}
+
+@keyframes following-open-inverse {
+  0% {
+    transform: translateX(0)
+  }
+
+  100% {
+    transform: translateX(calc(-1*var(--following-width)))
+  }
+}
+
+@keyframes following-open {
+  0% {
+    transform: translateX(0)
+  }
+
+  100% {
+    transform: translateX(var(--following-width))
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes spin-loading {
+  0% {
+    transform: rotate(0)
+  }
+
+  9% {
+    transform: rotate(1050deg)
+  }
+
+  18% {
+    transform: rotate(-1090deg)
+  }
+
+  20% {
+    transform: rotate(-1080deg)
+  }
+
+  23% {
+    transform: rotate(-1080deg)
+  }
+
+  28% {
+    transform: rotate(-1095deg)
+  }
+
+  29% {
+    transform: rotate(-1065deg)
+  }
+
+  34% {
+    transform: rotate(-1080deg)
+  }
+
+  35% {
+    transform: rotate(-1050deg)
+  }
+
+  40% {
+    transform: rotate(-1065deg)
+  }
+
+  41% {
+    transform: rotate(-1035deg)
+  }
+
+  44% {
+    transform: rotate(-1035deg)
+  }
+
+  47% {
+    transform: rotate(-2160deg)
+  }
+
+  50% {
+    transform: rotate(-2160deg)
+  }
+
+  56% {
+    transform: rotate(45deg)
+  }
+
+  60% {
+    transform: rotate(45deg)
+  }
+
+  80% {
+    transform: rotate(6120deg)
+  }
+
+  100% {
+    transform: rotate(0)
+  }
+}
+
+@media (min-width:375px) {
+  .AppearanceSwitchWrapper .Switch:checked+.SwitchButton {
+    right: .4375rem
+  }
+}
+
+@media (min-width:768px) {
+  .AppearanceSwitchWrapper .Switch:checked+.SwitchButton .SwitchButtonIcon--Light {
+    display: flex
+  }
+}
+
+@media (min-width:768px) {
+  .AppearanceSwitchWrapper .Switch:checked+.SwitchButton {
+    background-color: transparent;
+    right: .125rem
+  }
+
+  .AppearanceSwitchWrapper .Switch:checked+.SwitchButton:before {
+    background-color: #ffbf1a;
+    left: 2.1875rem
+  }
+}
+
+@media (min-width:768px) {
+  .AppearanceSwitchWrapper .SwitchButton:before {
+    background-color: #1f4ba4;
+    border-radius: 999999px;
+    content: "";
+    display: block;
+    height: 2.25rem;
+    left: 0;
+    position: absolute;
+    transition: left .15s cubic-bezier(.075, .82, .165, 1), background-color .15s cubic-bezier(.075, .82, .165, 1);
+    width: 2.25rem
+  }
+}
+
+[data-css-preset] #shop_button {
+  color: rgba(0, 0, 0, 0.85);
+  background: transparent;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  position: fixed;
+  padding: 6px;
+  top: 1rem;
+  left: 1.5rem
+}
+
+[data-css-preset] #site_menu_button {
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 40px;
+  padding: 6px;
+  line-height: 1;
+  background: rgba(33, 32, 46, 0);
+  position: fixed;
+  right: 3rem;
+  top: 3rem
+}
+
+[data-css-preset] .container_width {
+  width: 80%
+}
+
+[data-css-preset] .container {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: left
+}
+
+[data-css-preset] .thumbnails {
+  background-color: #fff;
+  ;
+}
+
+[data-css-preset] body {
+  background-color: #fff;
+  ;
+}
+
+[data-predefined-style="true"] [local-style="16762919"] small {
+  font-size: 1.2rem
+}
+
+[data-predefined-style="true"] [local-style="27022335"] small {
+  font-size: 1.2rem
+}
+
+[data-predefined-style="true"] bodycopy a:hover {
+  color: rgba(91, 91, 91, 0.75)
+}
+
+[data-predefined-style="true"] bodycopy a {
+  color: rgba(0, 0, 0, 0.75);
+  border-bottom: 0px solid rgba(0, 0, 0, 0.6);
+  text-decoration: none
+}
+
+[data-predefined-style="true"] bodycopy {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.75);
+  font-family: "iA Writer Quattro", Icons;
+  font-style: normal;
+  line-height: 1.6
+}
+
+[data-predefined-style="true"] h2 a {
+  color: rgba(146, 146, 146, 0.75)
+}
+
+[data-predefined-style="true"] h2 {
+  font-family: "iA Writer Quattro", Icons;
+  font-style: normal;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 1.2rem;
+  line-height: 1.6
+}
+
+[data-predefined-style="true"] small a {
+  color: rgba(0, 0, 0, 0.75);
+  border-bottom-width: 0em
+}
+
+[grid-row] [grid-col].empty:after {
+  content: " ";
+  cursor: text
+}
+
+[image-gallery=slideshow] img.image-zoom:active {
+  opacity: initial
+}
+
+[local-style="16762919"] .container_width {
+  width: 20%
+}
+
+[local-style="16762919"] .container {
+  margin-left: 0;
+  margin-right: auto;
+  align-items: flex-start;
+  -webkit-align-items: flex-start
+}
+
+[local-style="16762919"] .content_padding {
+  padding-bottom: 1.8rem;
+  padding-left: 2.9rem;
+  padding-right: 1.8rem;
+  padding-top: 4rem
+}
+
+[local-style="16762919"] .page_background {
+  background-color: transparent
+}
+
+[local-style="16762919"] .page {
+  min-height: 100vh;
+  background-color: initial
+}
+
+[local-style="27022335"] .container_width {
+  width: 20%
+}
+
+[local-style="27022335"] .container {
+  margin-left: 0;
+  margin-right: auto;
+  align-items: flex-end;
+  -webkit-align-items: flex-end
+}
+
+[local-style="27022335"] .content_padding {
+  padding-bottom: 1.8rem;
+  padding-left: 2.9rem;
+  padding-right: 1.8rem;
+  padding-top: 4rem
+}
+
+[local-style="27022335"] .page_background {
+  background-color: transparent
+}
+
+[local-style="27022335"] .page {
+  min-height: 100vh;
+  background-color: initial
+}
+
+[thumbnails] .thumbnail .resize-handle:hover {
+  opacity: 1
+}
+
+a:active {
+  opacity: 0.7
+}
+
+body,
+html {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0
+}
+
+body.mobile[data-adminview=content-editproject] [grid-row] [grid-col].empty:after {
+  display: none
+}
+
+bodycopy a.image-link,
+bodycopy a.image-link:hover,
+bodycopy a.icon-link:hover {
+  border-bottom: 0;
+  padding-bottom: 0;
+  text-decoration: none
+}
+
+bodycopy svg.marker-overlay * {
+  pointer-events: initial
+}
+
+bodycopy svg.marker-overlay,
+bodycopy svg.marker-overlay * {
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  box-sizing: initial
+}
+
+bodycopy svg.marker-overlay {
+  padding: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 1px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 999
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none
+}
+
+body {
+  color: #000
+}
+
+b {
+  font-weight: bolder
+}
+
+html:not(.admin-wrapper) .template_site #confirm_modal [data-progress] .progress-indicator:after {
+  content: "Generating Site...";
+  padding: 8px 15px;
+  right: -200px;
+  color: #000
+}
+
+html {
+  touch-action: manipulation;
+  position: relative;
+  background-color: #fff
+}
+
+img {
+  border: 0;
+  padding: 0;
+  border-radius: 25px
+}
+
+small {
+  max-width: 100%;
+  text-decoration: inherit
+}
+
+sup {
+  position: relative;
+  vertical-align: baseline
+}
+
+sup {
+  top: -0.4em
+}
+
+svg {
+  fill: #404040
+}
+
+[grid-col] {
+  box-sizing: border-box
+}
+
+[grid-row] {
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap
+}
+
+.content .scroll-transition-fade {
+  transition: transform 1s ease-in-out, opacity .8s ease-in-out
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_028_4caa04d21560.woff)format("woff");
+  font-style: normal;
+  font-weight: bold;
+  unicode-range: U+0-DFFF, U+F900-FFFD
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_029_006659d74e23.woff)format("woff");
+  font-style: italic;
+  font-weight: bold;
+  unicode-range: U+0-DFFF, U+F900-FFFD
+}
+
+[grid-col=x11] {
+  width: 50%
+}
+
+.thumbnails .content_padding {
+  padding: 20px
+}
+
+.thumbnails .thumbnail .title {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0.5rem 1.2rem 0.7rem 1.5rem;
+  margin: 0rem;
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+  align-content: flex-start;
+  display: flex;
+  position: absolute;
+  left: 1.05rem;
+  right: 0rem;
+  bottom: 1.05rem;
+  z-index: 9;
+  opacity: 0
+}
+
+.thumbnails .thumb_image {
+  outline: 0px solid rgba(0, 0, 0, .12);
+  border-radius: 25px;
+  overflow: hidden;
+  outline-offset: -1px
+}
+
+[grid-col="8"] {
+  width: 67%
+}
+
+[grid-col="4"] {
+  width: 33%
+}
+
+[data-css-preset] .thumbnails_width {
+  width: 80%
+}
+
+[thumbnails] .thumbnail img {
+  display: block;
+  min-height: 3px;
+  margin-bottom: 0
+}
+
+[thumbnails] .thumb_image {
+  width: 100%;
+  position: relative
+}
+
+.thumbnails .title {
+  margin-top: 1.2rem;
+  margin-bottom: 0.1rem;
+  margin-left: 1.2rem;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "iA Writer Quattro", Icons;
+  font-style: normal;
+  line-height: 1.1
+}
+
+div[thumbnails] {
+  justify-content: flex-start
+}
+
+[data-css-preset] [thumbnails-pad] {
+  padding: 0.4rem
+}
+
+.thumbnails .title span {
+  display: inline-block
+}
+
+[data-css-preset] .content_padding {
+  padding-top: 3.8rem;
+  padding-bottom: 3.8rem;
+  padding-left: 3.8rem;
+  padding-right: 3.8rem
+}
+
+[data-css-preset] [thumbnails-gutter] {
+  margin: -0.8rem
+}
+
+[thumbnails] .thumbnail>a {
+  display: block;
+  text-decoration: none
+}
+
+.thumbnails .thumbnail>a {
+  position: relative
+}
+
+[grid-gutter="8"] {
+  margin: -4rem
+}
+
+[grid-pad="4"] {
+  padding: 2rem
+}
+
+.content .scroll-transition-fade.below-viewport {
+  opacity: 0;
+  transform: translateY(40px)
+}
+
+/* ============================================
+   NEW: Mobile responsiveness
+   The original Cargo template used fixed/percentage widths tuned for
+   desktop. These breakpoints adjust layout for smaller screens.
+   ============================================ */
+@media (max-width: 768px) {
+
+  [data-css-preset] .container_width,
+  [data-css-preset] .thumbnails_width {
+    width: 94% !important;
+  }
+
+  [data-css-preset] .content_padding {
+    padding-top: 1.8rem !important;
+    padding-bottom: 1.8rem !important;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+
+  [local-style="16762919"] .container_width,
+  [local-style="27022335"] .container_width {
+    width: 94% !important;
+  }
+
+  [local-style="16762919"] .content_padding,
+  [local-style="27022335"] .content_padding {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+
+  /* grid columns stack on mobile instead of sitting side by side */
+  [grid-col="4"],
+  [grid-col="8"],
+  [grid-col=x11] {
+    width: 100% !important;
+  }
+
+  [grid-gutter="8"] {
+    margin: -1rem !important;
+  }
+
+  [grid-pad="4"] {
+    padding: 0.75rem !important;
+  }
+
+  [data-css-preset] #site_menu_button {
+    right: 1.2rem !important;
+    top: 1.2rem !important;
+    font-size: 32px !important;
+  }
+
+  [data-css-preset] #shop_button {
+    left: 1rem !important;
+    top: 0.75rem !important;
+  }
+
+  bodycopy {
+    font-size: 1.15rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  [data-css-preset] .container_width,
+  [data-css-preset] .thumbnails_width {
+    width: 100% !important;
+  }
+
+  [data-css-preset] .content_padding {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ============================================
+   NEW: Full-width project images
+   Cargo/SingleFile baked a fixed pixel width (e.g. width:1074px) into
+   each project image's inline style, sized for the OLD container_width
+   percentage. Overriding to 100% lets images stretch to fill bodycopy's
+   content column, aligning their edges with the thumbnail gallery below
+   (which now lives in the same column - see move_thumbnails.py).
+   ============================================ */
+/* ============================================
+   NEW: Image gallery wrapper
+   Project images are wrapped in <div class="project-image-stack"> (via
+   wrap_images.py), giving us one clean place to control spacing between
+   images and separation from surrounding content (the thumbnail gallery
+   below, or text above), instead of margin-hacking individual images.
+   ============================================ */
+.project-image-stack {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  max-width: 2000px;
+}
+
+.project-image-stack img.scroll-transition-fade {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.project-image-stack img.scroll-transition-fade+img.scroll-transition-fade {
+  margin-top: 1.5rem;
+}
+
+/* ============================================
+   NEW: Homepage padding fix
+   index.html's thumbnail grid had 0rem padding by original Cargo design
+   (edge-to-edge), while project pages use 4rem. Overriding so the
+   homepage gallery aligns with the spacing used everywhere else.
+   ============================================ */
+[local-style="16762912"] .content_padding {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+}
+
+/* ============================================
+   NEW: Thumbnail gallery grid styling
+   The thumbnails block has been moved (via move_thumbnails.py) from its
+   original separate .thumbnails_width container into the end of
+   <bodycopy>, so it now inherits .container_width and .content_padding
+   - the SAME width/padding system used by the project images above it.
+   This guarantees visual alignment without needing to match two
+   different width systems via CSS overrides.
+   [grid-col=x11]{width:50%} (already in shared rules) gives 2 columns.
+   ============================================ */
+/* Since the thumbnails block is now nested INSIDE bodycopy's own
+   .container_width/.content_padding, neutralize its original inner
+   wrapper's width/padding so we don't get double padding stacking. */
+.thumbnails .thumbnails_width {
+  width: 100% !important;
+}
+
+.thumbnails .thumbnails_width>.content_padding {
+  padding: 0 !important;
+}
+
+.thumbnails .thumb_image {
+  position: relative !important;
+  overflow: hidden;
+}
+
+.thumbnails .thumb_image img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+/* ============================================
+   NEW: Scroll fade-in animation support
+   The classes .scroll-transition-fade / .below-viewport and their
+   transition rules already exist in Cargo's original CSS (extracted
+   above). scroll-fade.js toggles .below-viewport on/off as elements
+   enter the viewport, and also strips the transition-duration:initial
+   inline style that Cargo's own engine stamped on project images.
+   ============================================ */
+.scroll-transition-fade {
+  opacity: 1;
+}
+
+noscript .scroll-transition-fade.below-viewport {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ============================================
+   CLEANUP: Responsive embed helper
+   Purpose: Replace inline-styled embed wrappers with a semantic
+   `.responsive-embed` class to keep HTML clean and maintain the
+   16:9 aspect ratio for video embeds.
+   Usage: Wrap an iframe in <div class="responsive-embed">...
+============================================ */
+.responsive-embed {
+  position: relative;
+  padding-top: 56%
+}
+
+.responsive-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0
+}
+
+/* End of cleanup helpers *//* ---- Layout utility classes (extracted from inline styles) ---- */
+
+.aspect-16x9 {
+  padding: 56% 0 0;
+  position: relative;
+}
+
+.aspect-ratio-placeholder {
+  height: 0;
+  position: relative;
+}
+
+.aspect-square {
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.fill-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+

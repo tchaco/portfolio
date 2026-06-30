@@ -1,0 +1,365 @@
+/* ==========================================================================
+   Tchaco — Portfolio stylesheet (rebuilt)
+   --------------------------------------------------------------------------
+   Clean rewrite of the original Cargo/SingleFile export.
+   PHASE 1: desktop layout only. Mobile + dark mode are added in later phases.
+
+   Section index
+     1. Design tokens .......... colours, fonts, sizing (CSS variables)
+     2. Fonts .................. @font-face declarations
+     3. Reset & base ........... box-sizing, body, links, images
+     4. Typography ............. headings, small print, intro tagline
+     5. Layout ................. fixed sidebar + scrolling main column
+     6. Sidebar ................ avatar, intro, category nav, social icons
+     7. Project content ........ header (title + description), credits
+     8. Media .................. stacked images, video embeds, galleries
+     9. Thumbnail gallery ...... 2-column project grid (home + project footer)
+    10. Scroll fade-in ......... reveal-on-scroll animation hooks
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   All colours live here so a dark-mode theme can later override them in one
+   place. Sizing values are expressed in rem against the root font-size below.
+   ========================================================================== */
+:root {
+  /* Colour */
+  --bg:            #fff;
+  --text:         rgba(0, 0, 0, 0.75);
+  --text-strong:  #000;
+  --link:         rgba(0, 0, 0, 0.75);
+  --link-hover:   rgba(91, 91, 91, 0.75);
+  --muted:        rgba(146, 146, 146, 0.75);
+  --icon:         #404040;
+  --title-text:   #fff;            /* thumbnail hover caption */
+
+  /* Shape & spacing */
+  --radius:       25px;
+  --sidebar-w:    20%;
+  --pad-main:     4rem;            /* main column padding */
+  --pad-side:     4rem 1.8rem 1.8rem 2.9rem;  /* sidebar padding (T R B L) */
+  --max-media:    2000px;          /* cap on full-width project images */
+  --media-margin: 2rem;            /* vertical space around every media block */
+  --media-gap:    1rem;            /* gap between items inside a gallery/stack */
+
+  /* Type */
+  --font-body:    "iA Writer Quattro", Icons, monospace;
+  --font-italic:  Georgia, "Georgia Italic", serif;
+}
+
+
+/* ==========================================================================
+   2. FONTS
+   ========================================================================== */
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_024_2e4cbe4ad015.woff) format("woff");
+  font-style: normal;
+  font-weight: 400;
+  unicode-range: U+0-DFFF, U+F900-FFFD;
+}
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_025_efd2b65cfe3b.woff) format("woff");
+  font-style: italic;
+  font-weight: 400;
+  unicode-range: U+0-DFFF, U+F900-FFFD;
+}
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_028_4caa04d21560.woff) format("woff");
+  font-style: normal;
+  font-weight: 700;
+  unicode-range: U+0-DFFF, U+F900-FFFD;
+}
+@font-face {
+  font-family: "iA Writer Quattro";
+  src: url(assets_compressed/font_029_006659d74e23.woff) format("woff");
+  font-style: italic;
+  font-weight: 700;
+  unicode-range: U+0-DFFF, U+F900-FFFD;
+}
+/* "Icons" supplies the small ︎ glyphs used in the ABOUT / NEWSLETTER links. */
+@font-face {
+  font-family: Icons;
+  src: url(assets_compressed/font_001_4c28dc0cfec4.woff2) format("woff2");
+  unicode-range: U+E000-E15C, U+F0000, U+FE0E;
+}
+
+
+/* ==========================================================================
+   3. RESET & BASE
+   ========================================================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  /* The original layout was tuned against this reduced root size; keeping it
+     preserves every rem-based dimension below at its intended scale. */
+  font-size: 79.38%;
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover  { color: var(--link-hover); }
+a:active { opacity: 0.7; }
+
+svg { fill: var(--icon); }
+
+
+/* ==========================================================================
+   4. TYPOGRAPHY
+   ========================================================================== */
+b { font-weight: 700; }
+
+h2 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+h2 a { color: var(--muted); }
+
+/* <small> renders as the italic serif used for the intro tagline and the
+   project credit blocks, matching the original design. */
+small {
+  display: inline-block;
+  max-width: 100%;
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   5. LAYOUT — fixed sidebar + scrolling main column
+   The sidebar is pinned to the left edge (out of flow); the main column is
+   offset by the sidebar's width and fills the remaining space.
+   ========================================================================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  padding: var(--pad-side);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* intro pinned top, social pinned bottom */
+  /* let clicks fall through empty space, but keep links/images interactive */
+  pointer-events: none;
+  z-index: 5;
+}
+.sidebar a,
+.sidebar img { pointer-events: auto; }
+
+.main {
+  margin-left: var(--sidebar-w);
+  padding: var(--pad-main);
+}
+
+
+/* ==========================================================================
+   6. SIDEBAR CONTENT
+   ========================================================================== */
+.sidebar__avatar {
+  width: 173px;
+  height: 173px;
+}
+
+.sidebar__intro { margin: 1.2rem 0; }
+
+/* ABOUT / NEWSLETTER quick links */
+.sidebar__links { margin-bottom: 1.6rem; }
+.sidebar__links a { display: block; }
+
+/* Category navigation (illustration / design / advertising / editorial) */
+.categories a {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+/* Social icon row */
+.social { display: flex; gap: 0.6rem; }
+.social a { line-height: 1; }
+.social svg { height: 1.25em; width: auto; }
+
+
+/* ==========================================================================
+   7. PROJECT CONTENT
+   ========================================================================== */
+.project__header {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+.project__header .title { flex: 0 0 33%; }
+.project__header .desc  { flex: 1; }
+
+/* Credits row at the foot of a project (agency, direction, etc.) */
+.credits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+
+/* ==========================================================================
+   8. MEDIA — stacked images, video embeds, galleries
+   ========================================================================== */
+
+/* Full-width images stacked vertically */
+.image-stack {
+  margin: var(--media-margin) 0;
+  max-width: var(--max-media);
+}
+.image-stack img {
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--media-gap);
+}
+.image-stack img:last-child { margin-bottom: 0; }
+
+/* Responsive 16:9 video embed (Vimeo/YouTube iframes) */
+.video {
+  position: relative;
+  padding-top: 56.25%;
+  margin: var(--media-margin) 0;
+  max-width: var(--max-media);
+}
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Row-major grid gallery (e.g. the 36-tile poster grid) */
+.gallery-grid {
+  display: grid;
+  gap: var(--media-gap);
+  margin: var(--media-margin) 0;
+  max-width: var(--max-media);
+}
+.gallery-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.gallery-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.gallery-grid img { width: 100%; height: auto; }
+
+/* Column-major (masonry) gallery — fills top-to-bottom, then across */
+.gallery-columns {
+  columns: 2;
+  column-gap: var(--media-gap);
+  margin: var(--media-margin) 0;
+  max-width: var(--max-media);
+}
+.gallery-columns img {
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--media-gap);
+  break-inside: avoid;
+}
+
+
+/* ==========================================================================
+   9. THUMBNAIL GALLERY — shared project grid (home page + project footers)
+   Two explicit columns, each a vertical stack, preserving the curated order
+   of the original layout. Each tile keeps its true aspect ratio via --ar.
+   ========================================================================== */
+.thumbnails {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+.thumbnails .column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.thumb__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ar, 1);
+}
+.thumb__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Caption fades in on hover */
+.thumb__title {
+  position: absolute;
+  left: 1.05rem;
+  right: 0;
+  bottom: 1.05rem;
+  z-index: 2;
+  padding: 0.5rem 1.2rem 0.7rem 1.5rem;
+  color: var(--title-text);
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.thumb:hover .thumb__title { opacity: 1; }
+
+
+/* ==========================================================================
+   10. SCROLL FADE-IN
+   scroll-fade.js toggles .below-viewport on elements as they enter view.
+   ========================================================================== */
+.scroll-transition-fade {
+  opacity: 1;
+  transition: transform 1s ease-in-out, opacity 0.8s ease-in-out;
+}
+.scroll-transition-fade.below-viewport {
+  opacity: 0;
+  transform: translateY(40px);
+}
+/* Without JS, never leave anything hidden */
+noscript .scroll-transition-fade.below-viewport {
+  opacity: 1 !important;
+  transform: none !important;
+}
