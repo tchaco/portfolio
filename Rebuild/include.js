@@ -32,3 +32,18 @@ if (document.readyState === 'loading') {
 } else {
   hydrateIncludes();
 }
+
+// ---- Site footer: injected on every page; year auto-updates ----
+function addFooter() {
+  if (document.querySelector('.site-footer')) return;      // guard against doubles
+  var footer = document.createElement('footer');
+  footer.className = 'site-footer';
+  footer.textContent = '© ' + new Date().getFullYear() +
+    ' Thiago Da Costa - Tchaco. All Rights Reserved.';
+  (document.querySelector('.main') || document.body).appendChild(footer);
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', addFooter);
+} else {
+  addFooter();
+}

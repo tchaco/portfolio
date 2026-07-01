@@ -207,6 +207,15 @@ small {
   padding: var(--pad-main);
 }
 
+/* Site footer — injected by include.js; year auto-updates each January */
+.site-footer {
+  margin-top: 4rem;
+  color: var(--muted);
+  font-family: var(--font-body);   /* mono, not the italic <small> style */
+  font-size: 14px;
+  text-align: center;
+}
+
 
 /* ==========================================================================
    6. SIDEBAR CONTENT
