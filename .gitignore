@@ -1,5 +1,1 @@
-# macOS
 .DS_Store
-
-# Large binary source assets (kept on disk, not versioned)
-Reference Files/assets_compressed/
