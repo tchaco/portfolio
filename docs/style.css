@@ -225,7 +225,10 @@ small {
   height: 173px;
 }
 
-.sidebar__intro { margin: 1.2rem 0; }
+.sidebar__intro { 
+  margin: 1.2rem 0;
+  max-width: 350px; 
+}
 
 /* ABOUT / NEWSLETTER quick links */
 .sidebar__links { margin-bottom: 1.6rem; }
