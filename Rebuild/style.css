@@ -303,6 +303,7 @@ small {
   max-width: var(--max-media);
 }
 .gallery-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.gallery-grid--3 { grid-template-columns: repeat(3, 1fr); }
 .gallery-grid--4 { grid-template-columns: repeat(4, 1fr); }
 .gallery-grid img { width: 100%; height: auto; }
 
