@@ -4,7 +4,7 @@ A clean, hand-written rebuild of the original Cargo/SingleFile export. The goal 
 code that's easy to read and edit often: no machine-generated wrappers, no
 duplicated markup, every section commented.
 
-**Now responsive (desktop + mobile).** Dark mode comes next — see Roadmap.
+**Responsive (desktop + mobile) with light/dark mode.** See Roadmap for status.
 
 ## What's here
 
@@ -14,14 +14,24 @@ Rebuild/
 ├── cervejaria-luna-visual-identity.html
 ├── braz-pizzaria-pizza-lovers.html
 ├── 36-days-of-type.html
-├── style.css                           One stylesheet, organised in 10 commented sections
+├── style.css                           One stylesheet, organised in 12 commented sections
 ├── include.js                          Loads the shared partials
 ├── scroll-fade.js                      Reveal-on-scroll animation
+├── theme.js                            Light/dark toggle (saved choice + OS preference)
 ├── partials/
-│   ├── sidebar.html                    Intro + social — shared by every page
+│   ├── sidebar.html                    Intro + collapsible nav + social — shared
 │   └── gallery.html                    The 20-project thumbnail grid — shared
 └── assets_compressed/                  → symlink to ../Reference Files/assets_compressed
 ```
+
+## Dark mode
+
+All colours are CSS variables. Light values live in `:root` (section 1 of
+`style.css`); dark values override them in the `:root[data-theme="dark"]` block
+right below — that one block *is* the dark theme. To retune dark mode, edit those
+values. `theme.js` sets `data-theme` on `<html>` before the page paints (no
+flash), follows the OS preference by default, and remembers a manual choice in
+the browser. The top-right pill toggle (section 12) flips between them.
 
 ## Why partials (and why a local server)
 
@@ -79,9 +89,9 @@ preview steps above) before moving to the next phase.
 2. **Mobile** — done (`v2-mobile`). Two breakpoints (section 11 of `style.css`):
    tablet (≤768px) moves the sidebar to a top header and drops the poster grid
    to 2 columns; phone (≤480px) collapses everything to one column.
-3. **Dark mode** ← next. A small top-right toggle that remembers the choice and
-   respects the OS preference. Mostly a second set of values for the CSS
-   variables already in `style.css`.
+3. **Dark mode** — done (`v3-dark-mode`). Top-right pill toggle, `#121212`
+   palette via the `:root[data-theme="dark"]` block, `theme.js` for no-flash
+   apply + saved choice + OS preference. See the Dark mode section above.
 
 ## Versioning
 

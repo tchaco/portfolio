@@ -48,6 +48,20 @@
   --font-italic:  Georgia, "Georgia Italic", serif;
 }
 
+/* Dark theme — same variables, dark values. Activated by data-theme="dark"
+   on <html> (set by theme.js from the saved choice or the OS preference).
+   Because everything above reads these variables, this block is all it takes. */
+:root[data-theme="dark"] {
+  --bg:           #121212;
+  --text:         rgba(255, 255, 255, 0.80);
+  --text-strong:  #ffffff;
+  --link:         rgba(255, 255, 255, 0.80);
+  --link-hover:   rgba(255, 255, 255, 0.50);
+  --muted:        rgba(255, 255, 255, 0.45);
+  --icon:         #cccccc;
+  --title-text:   #ffffff;
+}
+
 
 /* ==========================================================================
    2. FONTS
@@ -216,7 +230,7 @@ small {
 }
 
 /* Social icon row */
-.social { display: flex; gap: 0.6rem; }
+.social { display: flex; gap: 1rem; }
 .social a { line-height: 1; }
 .social svg { height: 1.25em; width: auto; }
 
@@ -236,10 +250,19 @@ small {
 .credits {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 4rem;
+  margin: 2rem 0 5rem 2rem;
 }
 
+/* Align the two header columns at the top: remove the paragraph's default
+   top margin so the description lines up with the title. Keep spacing
+   between stacked paragraphs, but no leading/trailing gap. */
+.project__header .desc p {
+  margin: 0 0 1em;
+}
+.project__header .desc p:last-child {
+  margin-bottom: 1em;  /* keep a little space before the credits row */
+}
 
 /* ==========================================================================
    8. MEDIA — stacked images, video embeds, galleries
@@ -306,7 +329,7 @@ small {
 .thumbnails {
   display: flex;
   gap: 0.8rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 .thumbnails .column {
   flex: 1;
@@ -462,4 +485,44 @@ noscript .scroll-transition-fade.below-viewport {
   .gallery-grid--2,
   .gallery-grid--4 { grid-template-columns: 1fr; }
   .gallery-columns { columns: 1; }
+}
+
+
+/* ==========================================================================
+   12. DARK MODE TOGGLE
+   A fixed pill switch (top-right) injected by theme.js. The knob slides right
+   when data-theme="dark" is active. Its colours come from the theme variables,
+   so it stays legible in both modes. The body transition makes switches fade
+   rather than snap.
+   ========================================================================== */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;          /* more inset so it clears the corner */
+  right: 1rem;        /* bump both to ~2.5rem to line up with content padding */
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  width: 32px;          /* was 44 */
+  height: 20px;         /* was 24 */
+  padding: 0;
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+.theme-toggle__knob {
+  display: block;
+  width: 14px;          /* was 18 */
+  height: 14px;
+  border-radius: 50%;
+  background: var(--icon);
+  transform: translateX(2px);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+:root[data-theme="dark"] .theme-toggle__knob {
+  transform: translateX(14px);   /* was 22 — retuned for the smaller pill */
 }
