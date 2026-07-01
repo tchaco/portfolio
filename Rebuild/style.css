@@ -37,7 +37,7 @@
   /* Shape & spacing */
   --radius:       25px;
   --sidebar-w:    20%;
-  --pad-main:     4rem;            /* main column padding */
+  --pad-main:     3rem 4rem 1.8rem 4rem;            /* main column padding */
   --pad-side:     4rem 1.8rem 1.8rem 2.9rem;  /* sidebar padding (T R B L) */
   --max-media:    2000px;          /* cap on full-width project images */
   --media-margin: 2rem;            /* vertical space around every media block */
@@ -212,7 +212,7 @@ small {
   margin-top: 4rem;
   color: var(--muted);
   font-family: var(--font-body);   /* mono, not the italic <small> style */
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
 }
 
