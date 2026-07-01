@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editorial — Tchaco</title>
+  <meta name="description" content="Editorial work by Thiago Da Costa (Tchaco).">
+  <link rel="icon" href="assets_compressed/image_002_e5edc0c13043.ico">
+  <!-- Applies the saved/OS theme before paint, then adds the toggle -->
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home" data-filter="editorial">
+
+  <!-- Shared left sidebar (intro + social) -->
+  <div data-include="partials/sidebar.html"></div>
+
+  <main class="main">
+    <h1 class="category-title">Editorial</h1>
+    <!-- Shared gallery, filtered to "editorial" via body[data-filter] (style.css §13) -->
+    <div data-include="partials/gallery.html"></div>
+  </main>
+
+  <script src="include.js"></script>
+  <script src="scroll-fade.js" defer></script>
+</body>
+</html>

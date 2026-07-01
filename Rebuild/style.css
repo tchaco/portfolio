@@ -536,3 +536,24 @@ body {
 :root[data-theme="dark"] .theme-toggle__knob {
   transform: translateX(14px);   /* was 22 — retuned for the smaller pill */
 }
+
+
+/* ==========================================================================
+   13. CATEGORY FILTER PAGES
+   Category pages (illustration.html, design.html, …) reuse the shared gallery
+   and set body[data-filter="<tag>"]. Thumbnails carry data-tags; any tile that
+   doesn't match the active filter is hidden. The home page sets no data-filter,
+   so it shows everything.
+   ========================================================================== */
+.category-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-strong);
+}
+[data-filter] .thumb { display: none; }
+[data-filter="illustration"] .thumb[data-tags~="illustration"],
+[data-filter="design"]       .thumb[data-tags~="design"],
+[data-filter="advertising"]  .thumb[data-tags~="advertising"],
+[data-filter="editorial"]    .thumb[data-tags~="editorial"] { display: block; }

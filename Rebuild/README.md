@@ -13,8 +13,9 @@ an auto-updating footer.** See Roadmap for status.
 Rebuild/
 ├── index.html                 Home (sidebar + project gallery)
 ├── about.html                 About (text layout)
-├── <project>.html × 19        One page per portfolio piece (see partials/gallery.html)
-├── style.css                  One stylesheet, organised in 12 commented sections
+├── <project>.html × 20        One page per portfolio piece (see partials/gallery.html)
+├── illustration.html …        4 category pages (filter the gallery by tag)
+├── style.css                  One stylesheet, organised in 13 commented sections
 ├── include.js                 Injects the shared partials + the footer (auto year)
 ├── scroll-fade.js             Reveal-on-scroll animation
 ├── theme.js                   Light/dark toggle (saved choice + OS preference)
@@ -85,12 +86,21 @@ captions — use `px` (or `pt`) rather than `rem`.
 | A project's images / text | that project's `.html` file |
 | Footer text / separator | the `addFooter()` string in `include.js` |
 
+## Category filter pages
+
+`illustration.html`, `design.html`, `advertising.html`, `editorial.html` reuse
+the shared gallery and set `body[data-filter="<tag>"]`. Each thumbnail in
+`partials/gallery.html` carries `data-tags` (its categories); CSS section 13
+hides any tile that doesn't match the active filter. The home page sets no
+filter, so it shows all 20. To retag a project, edit its thumbnail's `data-tags`
+in `partials/gallery.html`.
+
 ## Verified
 
 - All 195 asset references resolve.
-- All 21 pages, both partials, CSS and JS serve `200` over HTTP.
-- HTML tag structure is balanced on every file.
-- Media image counts match the original sources on every project page.
+- All 26 pages, both partials, CSS and JS serve `200` over HTTP.
+- HTML tag structure is balanced on every file; media counts match the sources.
+- All 53 internal links resolve; category filters select 14/7/4/2 projects.
 
 Visual parity with https://tchaco.cc/ should still be eyeballed in the browser.
 
@@ -102,23 +112,23 @@ Visual parity with https://tchaco.cc/ should still be eyeballed in the browser.
    to 2 columns; phone (≤480px) collapses everything to one column.
 3. **Dark mode** — done (`v3-dark-mode`). Pill toggle, `#121212` palette,
    `theme.js` for no-flash apply + saved choice + OS preference.
-4. **All pages** — done (`v4-all-pages`). 19 project pages + `about`, generated
-   from the cleaned Cargo exports in `../Reference Files/` (about hand-built).
-5. **Next: deploy.** Point `assets_compressed` at a real folder, switch gallery
-   links to local/relative paths, and publish. See "What's left" below.
+4. **All pages** — done (`v4-all-pages`). 20 project pages + `about`.
+5. **Links + categories** — done (`v5-links-categories`). All internal links are
+   relative `.html`; four category filter pages added.
+6. **Next: deploy** (see below).
 
-## What's left / next steps
+## What's left / deploy notes
 
-- **Missing project:** the gallery links to *studio 61 / creative services
-  illustrations* (`/studio-61-creative-services-illustrations`), but its source
-  wasn't in `Reference Files/` (there's no `13-…` file), so it has no local page
-  yet. Add the source to rebuild it.
-- **Internal links** still point at `https://tchaco.cc/…` (matches the live
-  site). For local click-through or before deploying, switch them to local/clean
-  paths.
-- **Assets at deploy time:** `assets_compressed` is a symlink to
-  `../Reference Files/assets_compressed`. Replace it with the real image folder
-  in the deployed build.
+- **Assets in the repo:** `assets_compressed` is a symlink to
+  `../Reference Files/assets_compressed`, and that folder is git-ignored. GitHub
+  Pages serves only what's committed, so before deploying, the images must live
+  inside the published folder (replace the symlink with the real folder, or move
+  the image set in). ~127MB — consider optimising, or hosting images on a CDN.
+- **studio-61 images** are full-size PNGs (~1.9MB) extracted from the raw
+  export; worth compressing to match the rest.
+- **GitHub Pages + custom domain:** add a `CNAME` file containing `tchaco.cc`,
+  publish the `Rebuild/` contents at the site root, then point the domain's DNS
+  at GitHub Pages.
 
 ## Versioning
 
